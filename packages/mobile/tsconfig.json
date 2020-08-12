@@ -8,9 +8,14 @@
     ],
     "allowJs": true,
     "checkJs": true,
-    "jsx": "react-native"
+    "jsx": "react-native",
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": ["./src/components/*"],
+      "@pages/*": ["./src/pages/*"]
+    }
   },
   "include": [
     "./src/**/*"
-  ]
+  ],
 }
