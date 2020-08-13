@@ -1,7 +1,8 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-import Label from '@components/TextFields/Label';
+
+import Favorite from '@components/Buttons/Toogle/Favorite';
 
 const App: React.FC = () => {
   return (
@@ -11,8 +12,7 @@ const App: React.FC = () => {
       alignItems: "center"
     }}>
 
-
-      <Label />
+      <Favorite isEnabled={true}/>
     </View>
   );
 }

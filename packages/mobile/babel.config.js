@@ -5,6 +5,7 @@ module.exports = {
       {
         alias: {
           '@components': './src/components/',
+          '@logo': './src/assets/logo/',
         }
       }
     ]
