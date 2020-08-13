@@ -5,8 +5,11 @@ module.exports = {
       {
         alias: {
           '@components': './src/components/',
-          '@pages': './src/pages/',
+          '@contexts': './src/contexts/',
           '@logo': './src/assets/logo/',
+          '@pages': './src/pages/',
+          
+          '@services':  './src/services/',
         }
       }
     ]

@@ -12,8 +12,11 @@
     "baseUrl": ".",
     "paths": {
       "@components/*": ["./src/components/*"],
+      "@contexts/*": ["./src/contexts/*"],
+      "@services/*":  ["./src/services/*"],
       "@logo/*": ["./src/assets/logo/*"],
-      "@pages/*": ["./src/pages/*"]
+      "@pages/*": ["./src/pages/*"],
+      
     }
   },
   "include": [
