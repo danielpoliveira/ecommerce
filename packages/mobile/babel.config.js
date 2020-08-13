@@ -4,11 +4,11 @@ module.exports = {
     ['module-resolver',
       {
         alias: {
+          '@arrow': './src/assets/arrow/',
           '@components': './src/components/',
           '@contexts': './src/contexts/',
           '@logo': './src/assets/logo/',
           '@pages': './src/pages/',
-          
           '@services':  './src/services/',
         }
       }

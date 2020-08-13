@@ -6,7 +6,7 @@ const Label: React.FC = props => {
 
   return (
     <View style={styles.container} >
-      <Text style={styles.text}>Label</Text>
+      <Text style={styles.text}>{placeholder}</Text>
     </View>
   );
 
@@ -21,7 +21,6 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     alignItems: 'center',
     justifyContent: 'space-between',
-
     shadowColor: '#000000',
     shadowOpacity: 0.05,
     shadowOffset: {

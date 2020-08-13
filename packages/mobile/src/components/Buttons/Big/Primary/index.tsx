@@ -6,7 +6,7 @@ const Primary: React.FC = props => {
 
   return (
     <View style={styles.container} >
-      <Text style={styles.text}>PRIMARY</Text>
+      <Text style={styles.text}>{placeholder}</Text>
     </View>
   );
 
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
   text: {
     fontFamily: 'Poppins-Regular',
     color: '#F5F5F5',
-    
+    textTransform: 'uppercase',
     fontSize: 14,
   }
 });

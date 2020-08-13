@@ -11,12 +11,12 @@
     "jsx": "react-native",
     "baseUrl": ".",
     "paths": {
+      "@arrow/*": ["./src/assets/arrow/*"],
       "@components/*": ["./src/components/*"],
       "@contexts/*": ["./src/contexts/*"],
       "@services/*":  ["./src/services/*"],
       "@logo/*": ["./src/assets/logo/*"],
-      "@pages/*": ["./src/pages/*"],
-      
+      "@pages/*": ["./src/pages/*"]
     }
   },
   "include": [
