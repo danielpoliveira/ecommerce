@@ -15,17 +15,15 @@ const Home: React.FC = () => (
       source={banner} style={{
         height: '85%',
         width: '100%'
-
-
       }}>
 
-      <View style={{marginTop: 270, paddingHorizontal: 10}} >
+      <View style={{marginTop: '60%', paddingHorizontal: 10}} >
 
         <View style={{marginVertical: 18}} >
           <Text style={{
-            maxWidth: 190,lineHeight: 60,
+            lineHeight: 60,
             color: '#F6F6F6',
-            fontFamily: 'Poppins-Black', fontSize: 48}}>Fashion sale</Text>
+            fontFamily: 'Poppins-Black', fontSize: 48}}>Fashion {'\n'}sale</Text>
         </View>
 
         <View>
