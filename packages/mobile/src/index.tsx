@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StatusBar } from 'react-native';
 
 
 import Favorite from '@components/Buttons/Toogle/Favorite';
@@ -10,21 +10,25 @@ import Switch from '@components/Switches';
 import TagOrdinary from '@components/Tags/Ordinary';
 import TagSmall from '@components/Tags/Small';
 import Hotlabel from '@components/Hotlabel';
+import Login from '@pages/login';
 
 
 
 const App: React.FC = () => {
   return (
+    <>
+      <StatusBar
+      backgroundColor="#1E1F28"
+     
+    />
     <View style={{
-      flex: 1, justifyContent: "center",
+      flex: 1, 
       backgroundColor: '#1E1F28',
-      alignItems: "center"
     }}>
-
-      <Favorite isEnabled={true}/>
-      
-      <Hotlabel active />
+  
+      <Login/>
     </View>
+    </>
   );
 }
 

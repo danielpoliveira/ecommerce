@@ -7,6 +7,7 @@ module.exports = {
           '@components': './src/components/',
           '@pages': './src/pages/',
           '@logo': './src/assets/logo/',
+          '@arrow': './src/assets/arrow/',
         }
       }
     ]

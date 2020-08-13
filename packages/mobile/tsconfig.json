@@ -13,6 +13,7 @@
     "paths": {
       "@components/*": ["./src/components/*"],
       "@logo/*": ["./src/assets/logo/*"],
+      "@arrow/*": ["./src/assets/arrow/*"],
       "@pages/*": ["./src/pages/*"]
     }
   },
