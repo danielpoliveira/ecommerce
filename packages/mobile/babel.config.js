@@ -7,6 +7,7 @@ module.exports = {
           '@arrow': './src/assets/arrow/',
           '@components': './src/components/',
           '@contexts': './src/contexts/',
+          '@images': './src/assets/images/',
           '@logo': './src/assets/logo/',
           '@pages': './src/pages/',
           '@services':  './src/services/',
