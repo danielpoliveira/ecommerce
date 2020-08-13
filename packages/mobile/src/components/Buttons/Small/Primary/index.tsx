@@ -6,7 +6,7 @@ const Primary: React.FC = props => {
 
   return (
     <View style={styles.container} >
-      <Text style={styles.text}>PRIMARY</Text>
+      <Text style={styles.text}>{placeholder}</Text>
     </View>
   );
 

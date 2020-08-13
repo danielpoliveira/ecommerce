@@ -6,31 +6,38 @@ import Arrow from '@arrow/Vector';
 import Google from '@components/Buttons/Toogle/Social/Google';
 import Facebook from '@components/Buttons/Toogle/Social/Facebook';
 
-const Login: React.FC = () => {
+const SignUp: React.FC = () => {
 
   return (
     <View style={styles.container} >
       <View style={styles.header}>
-        <Text style={styles.headerText}>Login</Text>
+        <Text style={styles.headerText}>Sign up</Text>
       </View>
-      <View style={styles.form}> 
+      <View style={styles.form}>
+
+        <View style={styles.formName}>
+          <Label placeholder="Name" />
+        </View>
+
         <View style={styles.formEmail}>
-          <Label placeholder="email"/>
+          <Label placeholder="Email" />
         </View>
 
-        <View style={styles.formPassword}> 
-          <Label placeholder="password"/>
+        <View style={styles.formPassword}>
+          <Label placeholder="Password" />
         </View>
 
       </View>
-      
+
       <View style={styles.viewForgotText}>
-          <Text style={styles.forgotText}>Forgot your password? </Text>
+        <Text style={styles.forgotText}>Forgot your password? </Text>
+        <View style={styles.viewArrow} >
           <Arrow width={20} height={22} />
+        </View>
       </View>
 
       <View style={styles.viewSubmit}>
-        <Primary placeholder="Login"/>
+        <Primary placeholder="Login" />
       </View>
 
       <View style={styles.viewAlternativeLoginContent}>
@@ -38,18 +45,18 @@ const Login: React.FC = () => {
           <Text style={styles.textAlternativeLogin}>Or login with social account </Text>
         </View>
 
-        <View style={styles.viewAlternativeLoginButtons}> 
-          <View style={styles.google}> 
-            <Google/>      
+        <View style={styles.viewAlternativeLoginButtons}>
+          <View style={styles.google}>
+            <Google />
           </View>
           <View style={styles.facebook}>
-            <Facebook/>
+            <Facebook />
           </View>
-          
+
         </View>
-        
+
       </View>
-      
+
     </View>
   );
 }
@@ -58,75 +65,85 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
 
+    backgroundColor: '#2A2C36',
+    flex: 1,
   },
-  header:{
-    paddingTop: 104,
+  header: {
     paddingLeft: 30,
     alignItems: 'flex-start',
     justifyContent: 'center',
   },
-  headerText:{
+  headerText: {
+    paddingTop: 104,
     fontFamily: 'Poppins-Bold',
     color: '#F7F7F7',
     fontSize: 34,
-    lineHeight: 34
-  }, 
-  form:{
-    justifyContent:'center',
+    lineHeight: 34,
+    paddingHorizontal: 15,
+  },
+  form: {
+    justifyContent: 'center',
     paddingTop: 73,
     paddingHorizontal: 15
 
   },
-  formEmail:{
+
+  formName: {
     paddingBottom: 8,
     alignItems: 'center'
   },
-  formPassword:{
+
+  formEmail: {
+    paddingBottom: 8,
     alignItems: 'center'
   },
-  viewForgotText:{
+  formPassword: {
+    alignItems: 'center'
+  },
+  viewForgotText: {
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'flex-end',
     paddingTop: 16,
     paddingRight: 30
-  
+
   },
-  forgotText:{
+  forgotText: {
     fontSize: 14,
     lineHeight: 20,
     color: '#F7F7F7'
   },
-  viewSubmit:{
+  viewSubmit: {
     paddingTop: 32,
     alignItems: 'center'
   },
-  viewAlternativeLoginContent:{
+
+  viewArrow: {
+    paddingRight: 15,
+  },
+  viewAlternativeLoginContent: {
     alignItems: 'center',
     padding: '10%'
   },
-  viewAlternativeLoginText:{
+  viewAlternativeLoginText: {
     paddingBottom: 12
   },
-  textAlternativeLogin:{
+  textAlternativeLogin: {
     fontSize: 14,
     lineHeight: 20,
-    color: '#F7F7F7' 
+    color: '#F7F7F7'
   },
-  viewAlternativeLoginButtons:{
+  viewAlternativeLoginButtons: {
     flexDirection: 'row'
   },
-  google:{
+  google: {
     paddingRight: 8
   },
-  facebook:{
+  facebook: {
     paddingLeft: 8
   }
-
-
 
 });
 
 
-
-export default Login;
+export default SignUp;
