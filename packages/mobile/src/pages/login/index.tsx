@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import Label from '@components/TextFields/Label';
 import Primary from '@components/Buttons/Big/Primary';
-import Arrow from '@arrow/Vector'
+import Arrow from '@arrow/Vector';
 import Google from '@components/Buttons/Toogle/Social/Google';
 import Facebook from '@components/Buttons/Toogle/Social/Facebook';
 
