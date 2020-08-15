@@ -10,7 +10,8 @@ module.exports = {
           '@images': './src/assets/images/',
           '@logo': './src/assets/logo/',
           '@pages': './src/pages/',
-          '@services':  './src/services/',
+          '@services': './src/services/',
+          '@svg': './src/assets/svg/',
         }
       }
     ]

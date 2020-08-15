@@ -6,6 +6,10 @@
       "esnext",
       "dom"
     ],
+    "typeRoots": [
+      "./node_modules/@types",
+      "./src/@types"
+    ],
     "allowJs": true,
     "checkJs": true,
     "jsx": "react-native",
@@ -17,7 +21,8 @@
       "@images/*": ["./src/assets/images/*"],
       "@services/*":  ["./src/services/*"],
       "@logo/*": ["./src/assets/logo/*"],
-      "@pages/*": ["./src/pages/*"]
+      "@pages/*": ["./src/pages/*"],
+      "@svg/*": ["./src/assets/svg/*"]
     }
   },
   "include": [
