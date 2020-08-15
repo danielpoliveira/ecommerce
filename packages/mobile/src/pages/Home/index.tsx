@@ -61,7 +61,7 @@ const Home: React.FC = () => (
       </View>
     </View>
 
-    <ScrollView horizontal>
+    <ScrollView horizontal showsHorizontalScrollIndicator={false} >
       <ProductCardMain />
       <ProductCardMain />
       <ProductCardMain />
@@ -97,7 +97,7 @@ const Home: React.FC = () => (
       </View>
     </View>
 
-    <ScrollView horizontal>
+    <ScrollView horizontal showsHorizontalScrollIndicator={false} >
       <ProductCardMain />
       <ProductCardMain />
       <ProductCardMain />
