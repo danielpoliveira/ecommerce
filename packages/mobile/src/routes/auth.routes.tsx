@@ -8,12 +8,12 @@ const AuthStack = createStackNavigator();
 
 const AuthRoutes: React.FC = () => (
   <AuthStack.Navigator screenOptions={{headerShown: false}} >
-    {/**<AuthStack.Screen name="Login" component={Login} />  */}
+    <AuthStack.Screen name="Login" component={Login} />
     {/**<AuthStack.Screen name="SignUp" component={SignUp} />  */}
 
-    <AuthStack.Screen name="ForgotPassword" component={ForgotPassword} /> 
+    {/*    <AuthStack.Screen name="ForgotPassword" component={ForgotPassword} />  */}
 
-    {/*<AuthStack.Screen name="SignUp" />*/}
+    
   </AuthStack.Navigator>
 );
 

@@ -9,12 +9,12 @@ const TagSmall: React.FC = props => {
   return (
     <View 
       style={
-        [ active 
+        [ styles.container, active 
         ? 
           { backgroundColor: '#F6F6F6' }
         :
           undefined,
-        styles.container]
+        ]
       } 
     >
       <Text 

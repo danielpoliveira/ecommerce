@@ -1,15 +1,15 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import Logo from '@logo/Google';
+
+import Logo from '@logo/Google.svg';
 
 const Google: React.FC = () => {
   return (
-    <View style={styles.container} >
-        <Logo width={23} height={24} />
+    <View style={styles.container}>
+        <Logo />
     </View>
   );
 }
-
 
 const styles = StyleSheet.create({
     container: {

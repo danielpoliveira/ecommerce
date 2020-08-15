@@ -1,45 +1,47 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import { View, Text, StatusBar } from 'react-native';
-
-
-import Favorite from '@components/Buttons/Toogle/Favorite';
-import Label from '@components/TextFields/Label';
-import Dropdown from '@components/Dropdown';
-import Checkbox from '@components/Checkbox';
-import Switch from '@components/Switches';
-import TagOrdinary from '@components/Tags/Ordinary';
-import TagSmall from '@components/Tags/Small';
-import Hotlabel from '@components/Hotlabel';
-import Login from '@pages/Login';
+import { View, Text, StatusBar, StyleSheet } from 'react-native';
 
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 
 import Routes from './routes';
+import ProductCardCatalog from '@components/ProductCard/Catalog';
+import ProductCardMain from '@components/ProductCard/Main';
 
 const App: React.FC = () => {
   return (
-    <View style={{ flex: 1, backgroundColor: '#2A2C36' }} >
-      
+    <View style={styles.container}>
       <StatusBar
         translucent
-
-        backgroundColor="rgba(0, 0, 0, 0)"
+        barStyle="light-content"
+        backgroundColor="rgba(0, 0, 0, 0.2)"
         animated
       />
-      <NavigationContainer
-        theme={{
-          ...DefaultTheme,
-          colors: {
-            ...DefaultTheme.colors,
-            background: '#2A2C36'
-          }
-        }}
-      >
+
+      <NavigationContainer theme={navigationTheme}>
         <Routes />
       </NavigationContainer>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#2A2C36'
+  } 
+})
+
+const navigationTheme = {
+  ...DefaultTheme,
+  dark: true,
+
+  colors: {
+    ...DefaultTheme.colors,
+    background: '#2A2C36',
+  },
+
+};
+
 
 export default App;
