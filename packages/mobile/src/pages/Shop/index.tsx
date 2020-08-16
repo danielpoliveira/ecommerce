@@ -1,5 +1,7 @@
 import React from 'react';
-import { View, Text, StatusBar, ScrollView, StyleSheet } from 'react-native';
+import {
+  View, Text, StatusBar, ScrollView, StyleSheet,
+} from 'react-native';
 import CategoryCard from '@components/CategoryCard';
 
 import { Header } from '@react-navigation/stack';
@@ -8,10 +10,9 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 
 const Tab = createMaterialTopTabNavigator();
 
-const Women: React.FC = () => {
-  return (
+const Women: React.FC = () => (
     <ScrollView>
-      <View style={{ alignItems: "center" }}>
+      <View style={{ alignItems: 'center' }}>
 
         <View style={styles.summerSalesContainer}>
           <View style={styles.summerSalesTextView}>
@@ -27,10 +28,9 @@ const Women: React.FC = () => {
 
       </View>
     </ScrollView>
-  );
-}
+);
 
-/*const Men: React.FC = () => {
+/* const Men: React.FC = () => {
   return (
     <View style={{
       flex: 1,
@@ -40,9 +40,9 @@ const Women: React.FC = () => {
       <Text>Men page</Text>
     </View>
   );
-}*/
+} */
 
-/*const Kids: React.FC = () => {
+/* const Kids: React.FC = () => {
   return (
     <View style={{
       flex: 1,
@@ -52,14 +52,12 @@ const Women: React.FC = () => {
       <Text>Kids page</Text>
     </View>
   );
-}*/
+} */
 
-const Men:  React.FC = Women;
+const Men: React.FC = Women;
 const Kids: React.FC = Women;
 
-const Shop: React.FC = props => {
-
-  return (
+const Shop: React.FC = (props) => (
     <Tab.Navigator
     screenOptions={
       {
@@ -70,13 +68,13 @@ const Shop: React.FC = props => {
         activeTintColor: '#F5F5F5',
         inactiveTintColor: '#ABB4BD',
         style: {
-          backgroundColor: undefined
+          backgroundColor: undefined,
         },
 
         indicatorStyle: {
           backgroundColor: '#EF3651',
           height: 3,
-        }
+        },
       }}
 
       style={{
@@ -87,37 +85,37 @@ const Shop: React.FC = props => {
       <Tab.Screen name="Men" component={Men} />
       <Tab.Screen name="Kids" component={Kids} />
     </Tab.Navigator>
-  );
-}
+);
 
 const styles = StyleSheet.create({
   summerSalesContainer: {
-    width: 343, height: 100,
+    width: 343,
+    height: 100,
     backgroundColor: '#FF3E3E',
     marginVertical: 16,
     borderRadius: 8,
-    justifyContent: "center", alignItems: "center"
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 
   summerSalesTextView: {
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center"
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 
-  summerSalesTitle: { 
-    fontSize: 24, 
-    fontFamily: 'Poppins-SemiBold', 
-    color: '#F6F6F6' 
+  summerSalesTitle: {
+    fontSize: 24,
+    fontFamily: 'Poppins-SemiBold',
+    color: '#F6F6F6',
   },
 
-  summerSalesDescription: { 
-    fontSize: 15, 
-    fontFamily: 'Poppins-Medium', 
-    color: '#F6F6F6' 
+  summerSalesDescription: {
+    fontSize: 15,
+    fontFamily: 'Poppins-Medium',
+    color: '#F6F6F6',
   },
 
-
-})
+});
 
 export default Shop;

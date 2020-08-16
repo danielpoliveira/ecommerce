@@ -2,12 +2,13 @@ import React from 'react';
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import HomeIcon from '@components/BottomTab/Icons/HomeIcon';
-
 import Home from '@pages/Home';
 import Shop from '@pages/Shop';
-import ShopIcon from '@components/BottomTab/Icons/ShopIcon';
 import Bag from '@pages/Bag';
+
+import HomeIcon from '@components/BottomTab/Icons/HomeIcon';
+import ShopIcon from '@components/BottomTab/Icons/ShopIcon';
+import BagIcon from '@components/BottomTab/Icons/BagIcon';
 
 const AppStack = createBottomTabNavigator();
 
@@ -45,7 +46,7 @@ const AppRoutes: React.FC = () => (
 
       <AppStack.Screen name="Bag" component={Bag}
         options={{
-          tabBarIcon: ({ color }) => <ShopIcon color={color} />,
+          tabBarIcon: ({ color }) => <BagIcon color={color} />,
         }}
       />
 

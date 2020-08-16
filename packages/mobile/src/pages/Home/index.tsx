@@ -34,7 +34,9 @@ const Home: React.FC = () => (
       </View>
     </ImageBackground>
 
-    <Title placeholder="New" description="You’ve never seen it before!" viewAll/>
+    <View style={{ paddingHorizontal: 13 }}>
+      <Title placeholder="New" description="You’ve never seen it before!" viewAll/>
+    </View>
 
     <ScrollView horizontal showsHorizontalScrollIndicator={false} >
       <ProductCardMain />
@@ -43,7 +45,9 @@ const Home: React.FC = () => (
       <ProductCardMain end />
     </ScrollView>
 
-    <Title placeholder="Sale" description="Super summer sale" viewAll/>
+    <View style={{ paddingHorizontal: 13 }}>
+      <Title placeholder="Sale" description="Super summer sale" viewAll/>
+    </View>
 
     <ScrollView horizontal showsHorizontalScrollIndicator={false} >
       <ProductCardMain />
@@ -80,7 +84,7 @@ const Home: React.FC = () => (
               fontFamily: 'Poppins-Black',
               fontSize: 34,
             }}
-            > Summer {'\n'}sale
+            >Summer {'\n'}sale
             </Text>
           </View>
 

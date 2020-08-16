@@ -5,9 +5,12 @@ import IonicIcons from 'react-native-vector-icons/Ionicons';
 
 import image from '@images/product-cart.png';
 
-const ProductCartBag: React.FC = (props) => (
+const ProductCartBag: React.FC = (props) => {
+  const { end } = props;
+
+  return (
     <View style={{
-      width: 343,
+      width: '100%',
       height: 104,
       borderRadius: 8,
 
@@ -18,6 +21,7 @@ const ProductCartBag: React.FC = (props) => (
       backgroundColor: '#2a2c36',
 
       margin: 0,
+      marginBottom: 15,
 
       shadowOffset: {
         width: 0,
@@ -39,8 +43,9 @@ const ProductCartBag: React.FC = (props) => (
 
       <View style={{
         flex: 1,
-
-        padding: 10,
+        paddingVertical: 10,
+        paddingLeft: 15,
+        paddingRight: 10,
         flexDirection: 'column',
         justifyContent: 'space-between',
       }}>
@@ -94,7 +99,7 @@ const ProductCartBag: React.FC = (props) => (
 
               textAlign: 'center',
               textAlignVertical: 'center',
-            }} color="#ABB4BD"/>
+            }} color="#ABB4BD" />
 
             <Text style={{
               fontFamily: 'Poppins-Medium',
@@ -120,7 +125,7 @@ const ProductCartBag: React.FC = (props) => (
               elevation: 5,
               textAlign: 'center',
               textAlignVertical: 'center',
-            }} color="#ABB4BD"/>
+            }} color="#ABB4BD" />
 
           </View>
 
@@ -136,6 +141,6 @@ const ProductCartBag: React.FC = (props) => (
         </View>
       </View>
     </View>
-);
-
+  );
+};
 export default ProductCartBag;

@@ -5,7 +5,7 @@ const Title: React.FC = (props) => {
   const { placeholder, viewAll, description } = props;
 
   return (
-    <View style={{ flex: 1, paddingHorizontal: 13 }} >
+    <View style={{ }} >
       <View style={{
         marginTop: 30,
         flexDirection: 'row',
