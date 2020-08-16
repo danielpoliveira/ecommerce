@@ -10,6 +10,7 @@ import grid3 from '@images/grid3.png';
 import ButtonPrimarySm from '@components/Buttons/Small/Primary';
 
 import ProductCardMain from '@components/ProductCard/Main';
+import Title from '@components/Title';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -33,36 +34,7 @@ const Home: React.FC = () => (
       </View>
     </ImageBackground>
 
-    <View style={{ flex: 1, paddingHorizontal: 13 }} >
-      <View style={{
-        marginTop: 30,
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-
-      }} >
-        <Text style={{
-          fontSize: 34,
-          fontFamily: 'Poppins-Bold',
-          lineHeight: 60,
-          color: '#f6f6f6',
-        }} >New</Text>
-        <Text style={{
-          fontSize: 12,
-          lineHeight: 16,
-          fontFamily: 'Poppins-Regular',
-          color: '#f6f6f6',
-        }}>View all</Text>
-      </View>
-      <View>
-        <Text style={{
-          color: '#ABB4BD',
-          fontFamily: 'Poppins-Regular',
-          fontSize: 12,
-          lineHeight: 16,
-        }}>You’ve never seen it before!</Text>
-      </View>
-    </View>
+    <Title placeholder="New" description="You’ve never seen it before!" viewAll/>
 
     <ScrollView horizontal showsHorizontalScrollIndicator={false} >
       <ProductCardMain />
@@ -71,36 +43,7 @@ const Home: React.FC = () => (
       <ProductCardMain end />
     </ScrollView>
 
-    <View style={{ flex: 1, paddingHorizontal: 13 }} >
-      <View style={{
-        marginTop: 30,
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-
-      }} >
-        <Text style={{
-          fontSize: 34,
-          fontFamily: 'Poppins-Bold',
-          lineHeight: 60,
-          color: '#f6f6f6',
-        }} >Sale</Text>
-        <Text style={{
-          fontSize: 12,
-          lineHeight: 16,
-          fontFamily: 'Poppins-Regular',
-          color: '#f6f6f6',
-        }}>View all</Text>
-      </View>
-      <View>
-        <Text style={{
-          color: '#ABB4BD',
-          fontFamily: 'Poppins-Regular',
-          fontSize: 12,
-          lineHeight: 16,
-        }}>Super summer sale</Text>
-      </View>
-    </View>
+    <Title placeholder="Sale" description="Super summer sale" viewAll/>
 
     <ScrollView horizontal showsHorizontalScrollIndicator={false} >
       <ProductCardMain />
