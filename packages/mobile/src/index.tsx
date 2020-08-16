@@ -1,15 +1,16 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import { View, Text, StatusBar, StyleSheet } from 'react-native';
+import {
+  View, StatusBar, StyleSheet,
+} from 'react-native';
 
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 
-import Routes from './routes';
 import ProductCardCatalog from '@components/ProductCard/Catalog';
 import ProductCardMain from '@components/ProductCard/Main';
+import Routes from './routes';
 
-const App: React.FC = () => {
-  return (
+const App: React.FC = () => (
     <View style={styles.container}>
       <StatusBar
         translucent
@@ -22,15 +23,14 @@ const App: React.FC = () => {
         <Routes />
       </NavigationContainer>
     </View>
-  );
-}
+);
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#2A2C36'
-  } 
-})
+    backgroundColor: '#2A2C36',
+  },
+});
 
 const navigationTheme = {
   ...DefaultTheme,
@@ -42,6 +42,5 @@ const navigationTheme = {
   },
 
 };
-
 
 export default App;

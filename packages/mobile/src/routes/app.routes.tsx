@@ -7,11 +7,11 @@ import HomeIcon from '@components/BottomTab/Icons/HomeIcon';
 import Home from '@pages/Home';
 import Shop from '@pages/Shop';
 import ShopIcon from '@components/BottomTab/Icons/ShopIcon';
+import Bag from '@pages/Bag';
 
 const AppStack = createBottomTabNavigator();
 
-const AppRoutes: React.FC = () => {
-  return (
+const AppRoutes: React.FC = () => (
     <AppStack.Navigator
       tabBarOptions={{
         activeTintColor: '#EF3651',
@@ -31,7 +31,7 @@ const AppRoutes: React.FC = () => {
 
       }} >
 
-      <AppStack.Screen name="Home" component={Home} 
+      <AppStack.Screen name="Home" component={Home}
         options={{
           tabBarIcon: ({ color }) => <HomeIcon color={color} />,
         }}
@@ -43,9 +43,13 @@ const AppRoutes: React.FC = () => {
         }}
       />
 
+      <AppStack.Screen name="Bag" component={Bag}
+        options={{
+          tabBarIcon: ({ color }) => <ShopIcon color={color} />,
+        }}
+      />
 
     </AppStack.Navigator>
-  );
-}
+);
 
 export default AppRoutes;
