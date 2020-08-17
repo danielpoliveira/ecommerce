@@ -1,7 +1,11 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-const Primary: React.FC = props => {
+type PrimaryProps = {
+  placeholder?: string
+};
+
+const Primary: React.FC<PrimaryProps> = (props) => {
   const { placeholder } = props;
 
   return (
@@ -9,9 +13,7 @@ const Primary: React.FC = props => {
       <Text style={styles.text}>{placeholder}</Text>
     </View>
   );
-
-}
-
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -39,11 +41,9 @@ const styles = StyleSheet.create({
   text: {
     fontFamily: 'Poppins-Regular',
     color: '#F5F5F5',
-    
+
     fontSize: 14,
-  }
+  },
 });
-
-
 
 export default Primary;
