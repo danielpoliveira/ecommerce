@@ -24,13 +24,15 @@ module.exports = {
   },
   plugins: [
     'react', '@typescript-eslint', 'import', 'prettier'],
-  rules: {},
+  rules: {
+    "react/prop-types": 0,
+    "no-use-before-define": ['error', { 'variables': false }]
+  },
   settings: {
     'import/resolver': {
       typescript: {
         'project': "packages/*/tsconfig.json"
       },
-      
     },
     react: {
       version: 'detect',
