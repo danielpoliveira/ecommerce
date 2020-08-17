@@ -1,7 +1,13 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-const Title: React.FC = (props) => {
+type TitleProps = {
+  placeholder: string,
+  viewAll?: true,
+  description?: string,
+};
+
+const Title: React.FC<TitleProps> = (props) => {
   const { placeholder, viewAll, description } = props;
 
   return (

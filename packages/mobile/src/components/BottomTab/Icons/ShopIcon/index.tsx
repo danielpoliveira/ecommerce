@@ -1,23 +1,21 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-import Icon from '@svg/shop/Shop.svg'
+import Icon from '@svg/shop/Shop.svg';
 
-const ShopIcon: React.FC = props => {
-  
-  const { color } = props;
+const ShopIcon: React.FC = (props) => {
+  const { color, bgColor } = props;
 
   return (
     <View style={styles.container} >
-      <Icon fill={color}/>
+      <Icon fill={bgColor} stroke={color} />
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
-    width: 30, height: 30,
-    
+
     alignItems: 'center',
     justifyContent: 'center',
   },

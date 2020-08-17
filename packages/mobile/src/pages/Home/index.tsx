@@ -16,7 +16,7 @@ const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
 const Home: React.FC = () => (
-  <ScrollView >
+  <ScrollView showsVerticalScrollIndicator={false} >
     <ImageBackground
       source={banner}
       style={styles.imageBackground}

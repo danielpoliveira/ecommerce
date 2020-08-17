@@ -4,8 +4,6 @@ import {
 } from 'react-native';
 import CategoryCard from '@components/CategoryCard';
 
-import { Header } from '@react-navigation/stack';
-
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
 const Tab = createMaterialTopTabNavigator();
@@ -30,40 +28,11 @@ const Women: React.FC = () => (
     </ScrollView>
 );
 
-/* const Men: React.FC = () => {
-  return (
-    <View style={{
-      flex: 1,
-      justifyContent: "center",
-      alignItems: "center"
-    }} >
-      <Text>Men page</Text>
-    </View>
-  );
-} */
-
-/* const Kids: React.FC = () => {
-  return (
-    <View style={{
-      flex: 1,
-      justifyContent: "center",
-      alignItems: "center"
-    }} >
-      <Text>Kids page</Text>
-    </View>
-  );
-} */
-
 const Men: React.FC = Women;
 const Kids: React.FC = Women;
 
 const Shop: React.FC = (props) => (
     <Tab.Navigator
-    screenOptions={
-      {
-
-      }
-    }
       tabBarOptions={{
         activeTintColor: '#F5F5F5',
         inactiveTintColor: '#ABB4BD',
