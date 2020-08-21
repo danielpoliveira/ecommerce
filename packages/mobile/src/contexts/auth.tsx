@@ -1,4 +1,7 @@
-import React, { createContext, useState, useEffect, useContext } from 'react';
+import React, {
+  createContext, useState, useEffect, useContext,
+} from 'react';
+
 import AsyncStorage from '@react-native-community/async-storage';
 
 import api from '@services/api';
@@ -32,13 +35,13 @@ export const AuthProvider: React.FC = ({ children }) => {
         setUser(JSON.parse(storagedUser));
       }
       setLoading(false);
-    }
+    };
 
     loadStorageData();
   }, []);
 
   const signIn = () => {
-    auth.signIn().then(async res => {
+    auth.signIn().then(async (res) => {
       setUser(res.user);
 
       api.defaults.headers.Authorization = `Bearer ${res.token}`;
@@ -46,14 +49,14 @@ export const AuthProvider: React.FC = ({ children }) => {
       await AsyncStorage.setItem('@Ecommerce:user', JSON.stringify(res.user));
       await AsyncStorage.setItem('@Ecommerce:token', res.token);
     });
-  }
+  };
 
   const signOut = async () => {
     await AsyncStorage.removeItem('@RNAuth:user');
     await AsyncStorage.removeItem('@RNAuth:token');
 
     setUser(null);
-  }
+  };
 
   return (
     <AuthContext.Provider
@@ -61,16 +64,16 @@ export const AuthProvider: React.FC = ({ children }) => {
         signed: !!user,
         user,
         loading,
-        
+
       }}
     >
       {children}
     </AuthContext.Provider>
   );
-}
+};
 
 export const useAuth = () => {
   const context = useContext(AuthContext);
 
   return context;
-}
+};

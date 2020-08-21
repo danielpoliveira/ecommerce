@@ -6,23 +6,26 @@ import {
 
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 
-import ProductCardCatalog from '@components/ProductCard/Catalog';
-import ProductCardMain from '@components/ProductCard/Main';
+import { AuthProvider } from '@contexts/auth';
 import Routes from './routes';
 
 const App: React.FC = () => (
-    <View style={styles.container}>
-      <StatusBar
-        translucent
-        barStyle="light-content"
-        backgroundColor="rgba(0, 0, 0, 0.2)"
-        animated
-      />
+  <View style={styles.container}>
+    <StatusBar
+      translucent
+      barStyle="light-content"
+      backgroundColor="rgba(0, 0, 0, 0.2)"
+      animated
+    />
 
-      <NavigationContainer theme={navigationTheme}>
+    <NavigationContainer theme={navigationTheme}>
+
+      <AuthProvider>
         <Routes />
-      </NavigationContainer>
-    </View>
+      </AuthProvider>
+
+    </NavigationContainer>
+  </View>
 );
 
 const styles = StyleSheet.create({
