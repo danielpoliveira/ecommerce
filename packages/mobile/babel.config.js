@@ -12,6 +12,7 @@ module.exports = {
           '@pages': './src/pages/',
           '@services': './src/services/',
           '@svg': './src/assets/svg/',
+          '@styles': './src/styles/',
         }
       }
     ]

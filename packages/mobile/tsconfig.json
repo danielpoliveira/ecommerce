@@ -22,7 +22,8 @@
       "@services/*":  ["./src/services/*"],
       "@logo/*": ["./src/assets/logo/*"],
       "@pages/*": ["./src/pages/*"],
-      "@svg/*": ["./src/assets/svg/*"]
+      "@svg/*": ["./src/assets/svg/*"],
+      "@styles/*": ["./src/styles/*"]
     }
   },
   "include": [
