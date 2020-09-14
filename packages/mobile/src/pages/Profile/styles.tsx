@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Image, Text, StyleSheet } from 'react-native';
 
 import IonicIcons from 'react-native-vector-icons/Ionicons';
-import Switch from '@components/Switches';
+
+import ThemeSwicher from '@components/ThemeSwitcher';
+
+import { useTheme } from '@contexts/theme';
 
 type AvatarViewProps = {
   name: string,
@@ -18,6 +21,7 @@ type LineSelectionProps = {
 export const AvatarView: React.FC<AvatarViewProps> = props => {
 
   const { name, email } = props;
+  const { theme } = useTheme();
 
   return (
     <View style={styles.avatarContainer}>
@@ -27,13 +31,11 @@ export const AvatarView: React.FC<AvatarViewProps> = props => {
       />
       <View style={styles.profileDataContainer} >
         <View>
-          <Text style={styles.avatarName}>{name}</Text>
-          <Text style={styles.avatarEmail}>{email}</Text>
+          <Text style={[styles.avatarName, { color: theme.textColor, }]}>{name}</Text>
+          <Text style={[styles.avatarEmail, { color: theme.textColorSecundary}]}>{email}</Text>
         </View>
-        <View style={styles.darkThemeSwitchContainer}>
-          <IonicIcons style={{ marginRight: 5 }} name="moon-outline" color="#F6F6F6" size={20} />
-          <Switch />
-        </View>
+
+        <ThemeSwicher />
       </View>
     </View >
   );
@@ -41,18 +43,20 @@ export const AvatarView: React.FC<AvatarViewProps> = props => {
 
 export const LineSelection: React.FC<LineSelectionProps> = props => {
   const { title, description, end } = props;
+  const { theme } = useTheme();
 
   return (
-    <View style={[styles.lineSelectionContainer, !end && styles.notEndLineSelection]}>
+    <View style={[styles.lineSelectionContainer, !end && [styles.notEndLineSelection, {borderBottomColor: theme.lineColor}]]}>
       <View>
-        <Text style={styles.lineSelectionTitle}>{title}</Text>
-        
-        {description 
-          && (<Text style={styles.lineSelectionDescription}>{description}</Text>)}
+        <Text style={[styles.lineSelectionTitle, {color: theme.textColor}]}>{title}</Text>
+
+        {description
+          && 
+        (<Text style={[styles.lineSelectionDescription, {color: theme.textColorSecundary,}]}>{description}</Text>)}
 
       </View>
       <View>
-        <IonicIcons name="chevron-forward" color="#ABB4BD" size={24} />
+        <IonicIcons name="chevron-forward" color={theme.textColorSecundary} size={24} />
       </View>
     </View>
   );
@@ -69,7 +73,6 @@ const styles = StyleSheet.create({
     marginLeft: 5,
     width: 64, height: 64,
     borderRadius: 64,
-    backgroundColor: 'gray',
   },
 
   profileDataContainer: {
@@ -83,20 +86,14 @@ const styles = StyleSheet.create({
   avatarName: {
     fontFamily: 'Poppins-SemiBold',
     fontSize: 18,
-    color: '#F6F6F6',
   },
 
   avatarEmail: {
-    color: '#ABB4BD',
     fontFamily: 'Poppins-Medium',
     fontSize: 17,
     lineHeight: 20,
   },
 
-  darkThemeSwitchContainer: {
-    flexDirection: 'row',
-    alignItems: "center",
-  },
 
   lineSelectionContainer: {
     width: '100%',
@@ -110,17 +107,15 @@ const styles = StyleSheet.create({
   lineSelectionTitle: {
     fontFamily: 'Poppins-SemiBold',
     fontSize: 18,
-    color: '#F6F6F6',
   },
 
   lineSelectionDescription: {
     fontFamily: 'Poppins-Regular',
     fontSize: 13.5,
-    color: '#ABB4BD',
   },
 
   notEndLineSelection: {
     borderBottomWidth: 1,
-    borderBottomColor: '#ABB4BD0D'
-  }, 
+    
+  },
 });

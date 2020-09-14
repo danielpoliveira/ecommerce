@@ -12,6 +12,7 @@ import ButtonPrimarySm from '@components/Buttons/Small/Primary';
 
 import ProductCardMain from '@components/ProductCard/Main';
 import Title from '@components/Title';
+import { useTheme } from '@contexts/theme';
 
 const HEADER_MAX_HEIGHT = 450;
 const HEADER_MIN_HEIGHT = 0;
@@ -138,16 +139,18 @@ export default class Home extends Component {
               <View style={{ flexDirection: 'row' }}>
                 <View style={{ flexDirection: 'column', flex: 1 }}>
                   <View style={{
-                    backgroundColor: '#1E1F28', width: windowWidth / 2, height: 187, alignItems: 'center', justifyContent: 'center',
+                    backgroundColor: '#1E1F28', width: windowWidth / 2, height: 187, justifyContent: 'center',
                   }}>
-                    <Text style={{
-                      lineHeight: 51,
-                      color: '#EF3651',
-                      fontFamily: 'Poppins-Black',
-                      fontSize: 34,
-                    }}
+                    <Text
+                      style={{
+                        lineHeight: 51,
+                        color: '#EF3651',
+                        fontFamily: 'Poppins-Black',
+                        fontSize: 38,
+                        paddingHorizontal: 13,
+                      }}
                     >Summer {'\n'}sale
-            </Text>
+                    </Text>
                   </View>
 
                   <ImageBackground source={grid2} style={{ width: windowWidth / 2, height: 187 }}>
@@ -191,11 +194,11 @@ export default class Home extends Component {
 
           <Animated.Image
             style={[styles.imageBackground,
-              {
-                opacity: imageOpacity,
+            {
+              opacity: imageOpacity,
 
-                transform: [{ translateY: imageTranslate }],
-              },
+              transform: [{ translateY: imageTranslate }],
+            },
             ]}
             source={banner}
           />

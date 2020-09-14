@@ -8,12 +8,15 @@ import FavoriteIcon from '@components/Buttons/Toogle/Favorite';
 
 import image from '@images/product-card-main.png';
 
+import { useTheme } from '@contexts/theme';
+
 const ProductCardMain: React.FC = props => {
   const { placeholder, end } = props;
+  const { theme } = useTheme();
 
   return (
     <View style={[
-      end && { marginRight: 14},
+      end && { marginRight: 14 },
 
       styles.container]} >
       <ImageBackground imageStyle={{ borderRadius: 10 }} style={styles.image} source={image}>
@@ -27,7 +30,6 @@ const ProductCardMain: React.FC = props => {
       </ImageBackground>
 
       <View style={{ flex: 1, alignSelf: 'flex-start', paddingLeft: 1, }} >
-
         <View style={{ flexDirection: 'row', alignItems: "center", marginTop: 8, marginBottom: 4, }} >
           <View style={styles.viewStars}>
             <IonicIcons name="star" size={13} color="#FFBA49" style={{ marginHorizontal: 1 }} />
@@ -38,24 +40,24 @@ const ProductCardMain: React.FC = props => {
           </View>
 
           <View style={styles.viewNumberOfReviews} >
-            <Text style={styles.TextNumberOfReviews}>(10)</Text>
+            <Text style={[styles.TextNumberOfReviews, { color: theme.textColorSecundary, }]}>(10)</Text>
           </View>
 
         </View>
 
         <View>
-          <Text style={styles.brandName}>Dorothy Perkins</Text>
-          <Text style={styles.itemName}>Evening Dress</Text>
+          <Text style={[styles.brandName, { color: theme.textColorSecundary, }]}>Dorothy Perkins</Text>
+          <Text style={[styles.itemName, { color: theme.textColor }]}>Evening Dress</Text>
         </View>
 
         <View style={styles.viewPrice} >
           <Text style={[styles.price, {
             textDecorationLine: "line-through",
             textDecorationStyle: "solid",
-            color: '#ABB4BD',
+            color: theme.textColorSecundary,
             marginRight: 4,
           }]}>15$</Text>
-          <Text style={styles.price}>12$</Text>
+          <Text style={[styles.price, {color: theme.primary}]}>12$</Text>
         </View>
       </View>
     </View>
@@ -64,7 +66,7 @@ const ProductCardMain: React.FC = props => {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 16, 
+    marginTop: 16,
     marginLeft: 14,
     width: 150, height: 270,
     alignItems: 'center',
@@ -100,12 +102,10 @@ const styles = StyleSheet.create({
     fontFamily: 'Poppins-Regular',
     fontSize: 11,
     lineHeight: 12,
-    color: '#ABB4BD',
   },
 
   brandName: {
     fontSize: 11, lineHeight: 16,
-    color: '#ABB4BD',
     fontFamily: 'Poppins-Regular'
   },
 
@@ -113,7 +113,6 @@ const styles = StyleSheet.create({
     fontFamily: 'Poppins-SemiBold',
     fontSize: 16,
     lineHeight: 24,
-    color: '#F7F7F7',
   },
 
   viewPrice: {
@@ -123,7 +122,6 @@ const styles = StyleSheet.create({
   price: {
     fontFamily: 'Poppins-Medium',
     fontSize: 14,
-    color: '#FF3E3E',
   },
 
 });

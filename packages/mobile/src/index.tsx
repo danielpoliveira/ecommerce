@@ -1,5 +1,5 @@
 import 'react-native-gesture-handler';
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   View, StatusBar, StyleSheet,
 } from 'react-native';
@@ -7,43 +7,58 @@ import {
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 
 import { AuthProvider } from '@contexts/auth';
+import { ThemeProvider, useTheme } from '@contexts/theme';
 import Routes from './routes';
 
-const App: React.FC = () => (
-  <View style={styles.container}>
-    <StatusBar
-      translucent
-      barStyle="light-content"
-      backgroundColor="rgba(0, 0, 0, 0.2)"
-      animated
-    />
+const AppContainer = ({ children }) => {
 
-    <NavigationContainer theme={navigationTheme}>
+  const { theme } = useTheme();
 
+  return (
+    <View style={[styles(theme).container]}>
+      <StatusBar
+        translucent
+        barStyle={theme.barStyle}
+        backgroundColor="rgba(0, 0, 0, 0.2)"
+        animated
+      />
+      { children}
+    </View>
+  );
+}
+
+const App = () => {
+  const { theme } = useTheme();
+
+  return (
+    <ThemeProvider >
       <AuthProvider>
-        <Routes />
+
+        <AppContainer>
+          <NavigationContainer theme={navigationTheme}>
+            <Routes />
+          </NavigationContainer>
+        </AppContainer>
+
       </AuthProvider>
+    </ThemeProvider>
+  );
+}
 
-    </NavigationContainer>
-  </View>
-);
-
-const styles = StyleSheet.create({
+const styles = theme => StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#2A2C36',
+    backgroundColor: theme.background,
   },
 });
 
 const navigationTheme = {
   ...DefaultTheme,
-  dark: true,
 
   colors: {
     ...DefaultTheme.colors,
-    background: '#2A2C36',
+    background: 'none',
   },
-
 };
 
 export default App;

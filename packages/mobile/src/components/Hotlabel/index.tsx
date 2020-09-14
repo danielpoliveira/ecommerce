@@ -3,8 +3,11 @@ import { View, Text, StyleSheet } from 'react-native';
 
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
+import { useTheme } from '@contexts/theme';
+
 const Hotlabel: React.FC = props => {
   const { placeholder, active } = props;
+  const { theme } = useTheme();
 
   return (
     <View 
@@ -12,7 +15,7 @@ const Hotlabel: React.FC = props => {
         styles.container,
         active 
         ? 
-          { backgroundColor: '#FF3E3E' }
+          { backgroundColor: theme.primary }
         :
           undefined,
         

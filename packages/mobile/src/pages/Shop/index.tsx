@@ -6,13 +6,19 @@ import CategoryCard from '@components/CategoryCard';
 
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
+import { useTheme } from '@contexts/theme';
+
 const Tab = createMaterialTopTabNavigator();
 
-const Women: React.FC = () => (
+const Women: React.FC = () => {
+
+  const { theme } = useTheme();
+
+  return (
     <ScrollView>
       <View style={{ alignItems: 'center' }}>
 
-        <View style={styles.summerSalesContainer}>
+        <View style={[{ backgroundColor: theme.primary }, styles.summerSalesContainer]}>
           <View style={styles.summerSalesTextView}>
             <Text style={styles.summerSalesTitle}>SUMMER SALES</Text>
             <Text style={styles.summerSalesDescription}>Up to 50% off</Text>
@@ -26,18 +32,28 @@ const Women: React.FC = () => (
 
       </View>
     </ScrollView>
-);
+  );
+}
 
 const Men: React.FC = Women;
 const Kids: React.FC = Women;
 
-const Shop: React.FC = (props) => (
+const Shop: React.FC = (props) => {
+
+  const { theme } = useTheme();
+
+  return (
     <Tab.Navigator
       tabBarOptions={{
-        activeTintColor: '#F5F5F5',
-        inactiveTintColor: '#ABB4BD',
+        
+        activeTintColor: theme.textColor,
+        inactiveTintColor: theme.textColorSecundary,
         style: {
           backgroundColor: undefined,
+        },
+
+        labelStyle: {
+          fontWeight: "bold"
         },
 
         indicatorStyle: {
@@ -54,13 +70,13 @@ const Shop: React.FC = (props) => (
       <Tab.Screen name="Men" component={Men} />
       <Tab.Screen name="Kids" component={Kids} />
     </Tab.Navigator>
-);
-
+  );
+}
 const styles = StyleSheet.create({
   summerSalesContainer: {
     width: 343,
     height: 100,
-    backgroundColor: '#FF3E3E',
+
     marginVertical: 16,
     borderRadius: 8,
     justifyContent: 'center',
