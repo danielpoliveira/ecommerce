@@ -25,7 +25,7 @@ export const AuthProvider: React.FC = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const loadStorageData = async () => {
+    const loadAuthData = async () => {
       const storagedUser = await AsyncStorage.getItem('@Ecommerce:user');
       const storagedToken = await AsyncStorage.getItem('@Ecommerce:token');
 
@@ -37,7 +37,7 @@ export const AuthProvider: React.FC = ({ children }) => {
       setLoading(false);
     };
 
-    loadStorageData();
+    loadAuthData();
   }, []);
 
   const signIn = () => {
