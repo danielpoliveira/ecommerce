@@ -12,60 +12,67 @@ import ShopIcon from '@components/BottomTab/Icons/ShopIcon';
 import BagIcon from '@components/BottomTab/Icons/BagIcon';
 import ProfileIcon from '@components/BottomTab/Icons/ProfileIcon';
 
+import { useTheme } from '@contexts/theme';
+
 const AppStack = createBottomTabNavigator();
 
-const AppRoutes: React.FC = () => (
-  <AppStack.Navigator
+const AppRoutes: React.FC = () => {
 
-    tabBarOptions={{
-      activeTintColor: '#EF3651',
-      inactiveTintColor: '#ABB4BD',
+  const { theme } = useTheme();
 
-      iconStyle: {
-        marginTop: 2,
-      },
+  return (
+    <AppStack.Navigator
+      tabBarOptions={{
+        showLabel: false,
+        activeTintColor: theme.primary,
+        inactiveTintColor: theme.textColorSecundary,
 
-      labelStyle: {
-        fontSize: 12,
-        margin: 0,
-        padding: 0,
-        fontFamily: 'Poppins-SemiBold',
-      },
+        iconStyle: {
+          //marginTop: 2,
+        },
 
-      style: {
-        height: 60,
-        backgroundColor: '#1E1F28',
-        borderTopWidth: 0,
-        borderTopLeftRadius: 12,
-        borderTopRightRadius: 12,
-      },
-    }} >
+        labelStyle: {
+          //fontSize: 12,
+          //margin: 0,
+          //padding: 0,
+          
+          fontFamily: 'Poppins-SemiBold',
+        },
 
-    <AppStack.Screen name="Home" component={Home}
-      options={{
-        tabBarIcon: ({ color, focused }) => <HomeIcon bgColor={focused ? color : 'none'} color={color} />,
-      }}
-    />
+        style: {
+          height: 60,
+          backgroundColor: theme.bottomBarBackground,
+          borderTopWidth: 0,
+          borderTopLeftRadius: 12,
+          borderTopRightRadius: 12,
+        },
+      }} >
 
-    <AppStack.Screen name="Shop" component={Shop}
-      options={{
-        tabBarIcon: ({ color, focused }) => <ShopIcon bgColor={focused ? color : 'none'} color={color} />,
-      }}
-    />
+      <AppStack.Screen name="Home" component={Home}
+        options={{
+          tabBarIcon: ({ color, focused }) => <HomeIcon bgColor={focused ? color : 'none'} color={color} />,
+        }}
+      />
 
-    <AppStack.Screen name="Bag" component={Bag}
-      options={{
-        tabBarIcon: ({ color, focused }) => <BagIcon bgColor={focused ? color : 'none'} color={color} />,
-      }}
-    />
+      <AppStack.Screen name="Shop" component={Shop}
+        options={{
+          tabBarIcon: ({ color, focused }) => <ShopIcon bgColor={focused ? color : 'none'} color={color} />,
+        }}
+      />
 
-    <AppStack.Screen name="Profile" component={Profile}
-      options={{
-        tabBarIcon: ({ color, focused }) => <ProfileIcon bgColor={focused ? color : 'none'} color={color} />,
-      }}
-    />
+      <AppStack.Screen name="Bag" component={Bag}
+        options={{
+          tabBarIcon: ({ color, focused }) => <BagIcon bgColor={focused ? color : 'none'} color={color} />,
+        }}
+      />
 
-  </AppStack.Navigator>
-);
+      <AppStack.Screen name="Profile" component={Profile}
+        options={{
+          tabBarIcon: ({ color, focused }) => <ProfileIcon bgColor={focused ? color : 'none'} color={color} />,
+        }}
+      />
 
+    </AppStack.Navigator>
+  );
+}
 export default AppRoutes;
