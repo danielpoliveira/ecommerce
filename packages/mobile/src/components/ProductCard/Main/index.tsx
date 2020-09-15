@@ -10,26 +10,26 @@ import image from '@images/product-card-main.png';
 
 import { useTheme } from '@contexts/theme';
 
-const ProductCardMain: React.FC = props => {
-  const { placeholder, end } = props;
+const ProductCardMain = props => {
+  const { placeholder, end, isEnabled } = props;
   const { theme } = useTheme();
 
   return (
-    <View style={[
-      end && { marginRight: 14 },
+    <View style={[end && { marginRight: 14 }, styles.container]} >
+      <View>
+        <ImageBackground imageStyle={{ borderRadius: 10 }} style={styles.image} source={image}>
+          <View style={styles.viewHotlabel}>
+            <Hotlabel active placeholder="-20%" />
+          </View>
 
-      styles.container]} >
-      <ImageBackground imageStyle={{ borderRadius: 10 }} style={styles.image} source={image}>
-        <View style={styles.viewHotlabel}>
-          <Hotlabel active placeholder="-20%" />
-        </View>
-
+        </ImageBackground>
         <View style={styles.viewFavoriteIcon}>
-          <FavoriteIcon />
+          <FavoriteIcon isEnabled={isEnabled} />
         </View>
-      </ImageBackground>
+      </View>
 
-      <View style={{ flex: 1, alignSelf: 'flex-start', paddingLeft: 1, }} >
+
+      <View style={{ top: -35, flex: 1, alignSelf: 'flex-start', paddingLeft: 1, }} >
         <View style={{ flexDirection: 'row', alignItems: "center", marginTop: 8, marginBottom: 4, }} >
           <View style={styles.viewStars}>
             <IonicIcons name="star" size={13} color="#FFBA49" style={{ marginHorizontal: 1 }} />
@@ -57,7 +57,7 @@ const ProductCardMain: React.FC = props => {
             color: theme.textColorSecundary,
             marginRight: 4,
           }]}>15$</Text>
-          <Text style={[styles.price, {color: theme.primary}]}>12$</Text>
+          <Text style={[styles.price, { color: theme.primary }]}>12$</Text>
         </View>
       </View>
     </View>
@@ -78,8 +78,7 @@ const styles = StyleSheet.create({
   },
 
   viewFavoriteIcon: {
-    zIndex: 5,
-    marginTop: 125,
+    bottom: 17.5, 
     alignSelf: "flex-end",
   },
 
@@ -105,7 +104,8 @@ const styles = StyleSheet.create({
   },
 
   brandName: {
-    fontSize: 11, lineHeight: 16,
+    fontSize: 11,
+    lineHeight: 16,
     fontFamily: 'Poppins-Regular'
   },
 

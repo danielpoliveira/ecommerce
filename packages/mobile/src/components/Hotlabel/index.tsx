@@ -5,7 +5,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 import { useTheme } from '@contexts/theme';
 
-const Hotlabel: React.FC = props => {
+const Hotlabel = props => {
   const { placeholder, active } = props;
   const { theme } = useTheme();
 

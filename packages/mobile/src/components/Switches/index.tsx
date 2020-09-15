@@ -3,7 +3,7 @@ import { View, Switch as _Switch, StyleSheet, } from 'react-native';
 
 import { useTheme } from '@contexts/theme';
 
-const Switch: React.FC = props => {
+const Switch = props => {
   const { change } = props;
   const { theme } = useTheme();
 
@@ -16,6 +16,7 @@ const Switch: React.FC = props => {
       !previousState
     );
   }
+  
   return (
     <View style={styles(theme).container}>
       <_Switch
