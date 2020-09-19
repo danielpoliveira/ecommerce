@@ -15,10 +15,10 @@ const FavoriteIcon = props => {
   }
 
   return (
-    <View style={styles.rippleMaxArea}>
+    <View style={styles.container}>
       <Pressable 
         android_ripple={{ color: theme.primary, borderless: false }} 
-        style={[styles.container, { backgroundColor: theme.background }]}
+        style={[styles.button, { backgroundColor: theme.background }]}
         onPress={handleFavorite}
       >
         <IonicIcons
@@ -32,12 +32,23 @@ const FavoriteIcon = props => {
 }
 
 const styles = StyleSheet.create({
-  rippleMaxArea: {
+  container: {
     overflow: "hidden",
-    borderRadius: 36
+    borderRadius: 36,
+    shadowOpacity: 0.35,
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    
+    shadowRadius: 8,
+    elevation: 5,
+    shadowColor: '#EF3651',
+    width: 36,
+    height: 36,
   },
 
-  container: {
+  button: {
     flexDirection: 'row',
     width: 36,
     height: 36,
@@ -45,15 +56,6 @@ const styles = StyleSheet.create({
     borderRadius: 36,
     alignItems: 'center',
     justifyContent: 'center',
-
-    shadowOpacity: 0.35,
-    shadowOffset: {
-      width: 0,
-      height: 4,
-    },
-    shadowRadius: 8,
-    elevation: 5,
-    shadowColor: '#EF3651',
   },
 });
 

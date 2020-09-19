@@ -1,28 +1,29 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-const Primary: React.FC = props => {
+import { useTheme } from '@contexts/theme';
+
+const Primary = props => {
   const { placeholder } = props;
+  const { theme } = useTheme();
 
   return (
-    <View style={styles.container} >
+    <View style={[styles.container, { backgroundColor: theme.primary, shadowColor: theme.primary }]} >
       <Text style={styles.text}>{placeholder}</Text>
     </View>
   );
-
 }
-
 
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     width: 343,
     height: 48,
-    backgroundColor: '#EF3651',
+
     borderRadius: 23,
     alignItems: 'center',
     justifyContent: 'center',
-    shadowColor: '#EF3651',
+    
     shadowOpacity: 0.35,
     shadowOffset: {
       width: 0,

@@ -1,14 +1,16 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
+import { useTheme } from '@contexts/theme';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
-const Dropdown: React.FC = props => {
-  //const { placeholder } = props;
+const Dropdown = props => {
+  const { placeholder } = props;
+  const { theme } = useTheme();
 
   return (
-    <View style={styles.container} >
-      <Text style={styles.text}>Tag</Text>
+    <View style={[styles.container, {borderColor: theme.textColorSecundary}]} >
+      <Text style={[styles.text, { color: theme.textColor}]}>{placeholder || 'Tag'}</Text>
       <MaterialIcons name="keyboard-arrow-down" color="#ABB4BD" size={16}/>
     </View>
   );
@@ -17,7 +19,7 @@ const Dropdown: React.FC = props => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    width: 100,
+    width: '40%',
     height: 40,
     
     borderRadius: 8,
@@ -25,18 +27,12 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     
     borderWidth: 1,
-    borderColor: '#ABB4BD',
-
     paddingHorizontal: 10,
-    
   },
 
   text: {
     fontFamily: 'Poppins-Regular',
-    color: '#F6F6F6',
-    
-    
-    fontSize: 11,
+    fontSize: 15,
   }
 });
 

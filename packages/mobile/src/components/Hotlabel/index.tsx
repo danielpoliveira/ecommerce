@@ -13,12 +13,9 @@ const Hotlabel = props => {
     <View 
       style={[ 
         styles.container,
-        active 
-        ? 
-          { backgroundColor: theme.primary }
-        :
-          undefined,
-        
+        { backgroundColor: active? 
+          theme.primary: 
+          theme.dark}
       ]} 
     >
       <Text style={styles.text}>{placeholder}</Text>
