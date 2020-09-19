@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, Text, StyleSheet, ImageBackground } from 'react-native';
+import { View, Text, StyleSheet, ImageBackground, Pressable } from 'react-native';
 
-import IonicIcons from 'react-native-vector-icons/Ionicons';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 import Hotlabel from '@components/Hotlabel';
 import FavoriteIcon from '@components/Buttons/Toogle/Favorite';
@@ -11,15 +11,28 @@ import image from '@images/product-card-main.png';
 import { useTheme } from '@contexts/theme';
 
 const ProductCardMain = props => {
-  const { placeholder, end, isEnabled } = props;
+  const { placeholder, end, isEnabled, navigation, tagInfo } = props;
   const { theme } = useTheme();
 
+  const active = tagInfo !== 'new';
+
   return (
-    <View style={[end && { marginRight: 14 }, styles.container]} >
+    <Pressable
+      //onPress={() => navigation.navigate('Product') }
+      onPress={() => navigation.navigate({
+        name: 'Product',
+        key: 'Product' + Math.random() * 10000,
+
+        //routeName: 'Product'
+        //routeName: routeName, 
+        //params: params
+      })}
+      style={[end && { marginRight: 15 }, styles.container]}
+    >
       <View>
         <ImageBackground imageStyle={{ borderRadius: 10 }} style={styles.image} source={image}>
           <View style={styles.viewHotlabel}>
-            <Hotlabel active placeholder="-20%" />
+            <Hotlabel active={active} placeholder={tagInfo || '-20%'} />
           </View>
 
         </ImageBackground>
@@ -32,11 +45,11 @@ const ProductCardMain = props => {
       <View style={{ top: -35, flex: 1, alignSelf: 'flex-start', paddingLeft: 1, }} >
         <View style={{ flexDirection: 'row', alignItems: "center", marginTop: 8, marginBottom: 4, }} >
           <View style={styles.viewStars}>
-            <IonicIcons name="star" size={13} color="#FFBA49" style={{ marginHorizontal: 1 }} />
-            <IonicIcons name="star" size={13} color="#FFBA49" style={{ marginHorizontal: 1 }} />
-            <IonicIcons name="star" size={13} color="#FFBA49" style={{ marginHorizontal: 1 }} />
-            <IonicIcons name="star" size={13} color="#FFBA49" style={{ marginHorizontal: 1 }} />
-            <IonicIcons name="star" size={13} color="#FFBA49" style={{ marginHorizontal: 1 }} />
+            <FontAwesome name="star" size={13} color="#FFBA49" style={{ marginHorizontal: 1 }} />
+            <FontAwesome name="star" size={13} color="#FFBA49" style={{ marginHorizontal: 1 }} />
+            <FontAwesome name="star" size={13} color="#FFBA49" style={{ marginHorizontal: 1 }} />
+            <FontAwesome name="star" size={13} color="#FFBA49" style={{ marginHorizontal: 1 }} />
+            <FontAwesome name="star" size={13} color="#FFBA49" style={{ marginHorizontal: 1 }} />
           </View>
 
           <View style={styles.viewNumberOfReviews} >
@@ -60,7 +73,7 @@ const ProductCardMain = props => {
           <Text style={[styles.price, { color: theme.primary }]}>12$</Text>
         </View>
       </View>
-    </View>
+    </Pressable>
   );
 }
 
@@ -78,7 +91,7 @@ const styles = StyleSheet.create({
   },
 
   viewFavoriteIcon: {
-    bottom: 17.5, 
+    bottom: 17.5,
     alignSelf: "flex-end",
   },
 
