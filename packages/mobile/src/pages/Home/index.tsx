@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
 import {
   View, Text, ImageBackground, ScrollView,
-  Animated, StyleSheet, Dimensions, Platform, RefreshControl,
+  Animated, StyleSheet, Dimensions, Platform, RefreshControl, Image
 } from 'react-native';
+
+import ButtonPrimarySm from '@components/Buttons/Small/Primary';
+import ProductCardMain from '@components/ProductCard/Main'; 
+import Title from '@components/Title';
 
 import banner from '@images/homescreen-banner.png';
 import grid1 from '@images/grid1.png';
 import grid2 from '@images/grid2.png';
 import grid3 from '@images/grid3.png';
-import ButtonPrimarySm from '@components/Buttons/Small/Primary';
-
-import ProductCardMain from '@components/ProductCard/Main';
-import Title from '@components/Title';
-import { useTheme } from '@contexts/theme';
 
 const HEADER_MAX_HEIGHT = 450;
 const HEADER_MIN_HEIGHT = 0;
@@ -21,7 +20,16 @@ const HEADER_SCROLL_DISTANCE = HEADER_MAX_HEIGHT - HEADER_MIN_HEIGHT;
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
-export default class Home extends Component {
+type MyProps = {
+  navigation: any;
+};
+
+type Mystate = {
+  scrollY: Animated.Value;
+  refreshing: boolean;
+};
+
+class Home extends Component<MyProps, Mystate> {
   constructor(props) {
     super(props);
 
@@ -34,6 +42,8 @@ export default class Home extends Component {
   }
 
   render() {
+    const { navigation } = this.props;
+
     const scrollY = Animated.add(
       this.state.scrollY,
       Platform.OS === 'ios' ? HEADER_MAX_HEIGHT : 0,
@@ -101,10 +111,10 @@ export default class Home extends Component {
             </View>
 
             <ScrollView horizontal showsHorizontalScrollIndicator={false} >
-              <ProductCardMain />
-              <ProductCardMain />
-              <ProductCardMain />
-              <ProductCardMain end />
+              <ProductCardMain navigation={navigation} />
+              <ProductCardMain navigation={navigation} />
+              <ProductCardMain navigation={navigation} />
+              <ProductCardMain navigation={navigation} end />
             </ScrollView>
 
             <View style={{ paddingHorizontal: 13 }}>
@@ -112,10 +122,10 @@ export default class Home extends Component {
             </View>
 
             <ScrollView horizontal showsHorizontalScrollIndicator={false} >
-              <ProductCardMain />
-              <ProductCardMain />
-              <ProductCardMain />
-              <ProductCardMain end />
+              <ProductCardMain navigation={navigation} />
+              <ProductCardMain navigation={navigation} />
+              <ProductCardMain navigation={navigation} />
+              <ProductCardMain navigation={navigation} end />
             </ScrollView>
 
             <View >
@@ -139,7 +149,7 @@ export default class Home extends Component {
               <View style={{ flexDirection: 'row' }}>
                 <View style={{ flexDirection: 'column', flex: 1 }}>
                   <View style={{
-                    backgroundColor: '#1E1F28', width: windowWidth / 2, height: 187, justifyContent: 'center',
+                    width: windowWidth / 2, height: 187, justifyContent: 'center',
                   }}>
                     <Text
                       style={{
@@ -155,14 +165,15 @@ export default class Home extends Component {
 
                   <ImageBackground source={grid2} style={{ width: windowWidth / 2, height: 187 }}>
                     <View style={{ alignItems: 'flex-start', marginVertical: '65%', paddingHorizontal: 13 }}>
-                      <Text style={{
-                        lineHeight: 51,
-                        color: '#F6F6F6',
-                        fontFamily: 'Poppins-Black',
-                        fontSize: 34,
-                      }}
+                      <Text 
+                        style={{
+                          lineHeight: 51,
+                          color: '#F6F6F6',
+                          fontFamily: 'Poppins-Black',
+                          fontSize: 34,
+                        }}
                       >Black
-                </Text>
+                      </Text>
                     </View>
                   </ImageBackground>
 
@@ -262,3 +273,5 @@ const styles = StyleSheet.create({
     fontSize: 48,
   },
 });
+
+export default Home;
