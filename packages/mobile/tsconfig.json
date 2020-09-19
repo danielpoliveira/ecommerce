@@ -23,7 +23,8 @@
       "@logo/*": ["./src/assets/logo/*"],
       "@pages/*": ["./src/pages/*"],
       "@svg/*": ["./src/assets/svg/*"],
-      "@styles/*": ["./src/styles/*"]
+      "@styles/*": ["./src/styles/*"],
+      "@routes/*": ["./src/routes/*"]
     }
   },
   "include": [

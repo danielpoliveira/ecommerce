@@ -13,6 +13,7 @@ module.exports = {
           '@services': './src/services/',
           '@svg': './src/assets/svg/',
           '@styles': './src/styles/',
+          '@routes': './src/routes/',
         }
       }
     ]
