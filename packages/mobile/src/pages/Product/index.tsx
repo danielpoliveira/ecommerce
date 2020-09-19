@@ -10,6 +10,8 @@ import { Description, MoreProducts, Option, Title } from './styles';
 import Primary from '@components/Buttons/Big/Primary';
 import ProductCardMain from '@components/ProductCard/Main';
 
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+
 import img1 from '@images/vestido.png';
 import img2 from '@images/vestido-2.png';
 
@@ -27,9 +29,8 @@ const Product = props => {
   const change = ({ nativeEvent }) => {
     const slide = Math.ceil(nativeEvent.contentOffset.x / nativeEvent.layoutMeasurement.width);
 
-    if (slide !== active) {
+    if (slide !== active)
       setActive(slide);
-    }
   }
 
   return (<>
@@ -61,14 +62,16 @@ const Product = props => {
         </ScrollView>
         <View style={{ flexDirection: 'row', alignSelf: 'center', bottom: 0, position: 'absolute' }}>
           {
-            images.map((image, index) => <Text key={index} style={{
-              color: index === active? theme.primary : theme.textColorSecundary,
-              margin: 3,
-              fontSize: width/25
-            }}>⬤</Text>)
+            images.map((undefined, index) =>
+              <FontAwesome
+                name="circle"
+                size={12.5}
+                style={{ margin: 3 }}
+                color={index === active ? theme.primary : theme.textColorSecundary}
+              />
+            )
           }
         </View>
-
       </View>
 
       <View style={{ marginHorizontal: 15, flexDirection: 'row', justifyContent: "space-between", paddingVertical: 20 }} >
@@ -99,8 +102,6 @@ const Product = props => {
         <ProductCardMain navigation={navigation} />
         <ProductCardMain navigation={navigation} end />
       </ScrollView>
-
-
     </ScrollView>
 
     <View style={{ paddingVertical: 15, bottom: 0, alignItems: 'center', justifyContent: 'center' }} >
