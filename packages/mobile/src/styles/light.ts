@@ -9,7 +9,9 @@ export default {
   error: '#FF2424',
   primary: '#DB3022',
   success: '#55D85A',
-  lineColor: '#9B9B9B5C'
+  lineColor: '#9B9B9B5C',
+
+  dark: '#222222',
 };
 
 

@@ -16,6 +16,7 @@ interface Theme {
   primary: string;
   success: string;
   lineColor: string;
+  dark: string;
   bottomBarBackground: string;
 };
 
