@@ -1,5 +1,5 @@
 import React, { useRef, useState, useLayoutEffect } from 'react';
-import { View, ScrollView, Text, Image, Dimensions, FlatList, } from 'react-native';
+import { View, ScrollView, Text, Image, Dimensions, FlatList,  } from 'react-native';
 import Animated from 'react-native-reanimated';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
@@ -45,6 +45,16 @@ const Product = ({ navigation }: ProductProps) => {
 
   useLayoutEffect(() => {
     navigation.setOptions({
+      headerLeft: () => (
+        <TouchableOpacity
+          onPress={() => navigation.goBack()}
+          style={{
+            marginHorizontal: 15,
+          }}
+        >
+          <MaterialIcons name="arrow-back" size={20} color={theme.textColor} />
+        </TouchableOpacity>
+      ),
       headerRight: () => (
         <TouchableOpacity
           style={{
