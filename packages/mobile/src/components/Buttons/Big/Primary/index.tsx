@@ -1,16 +1,24 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Pressable } from 'react-native';
 
 import { useTheme } from '@contexts/theme';
 
-const Primary = props => {
-  const { placeholder } = props;
+interface PrimaryProps {
+  placeholder?: string;
+  handlerSubmitCart?: () => void;
+};
+
+const Primary = (props: PrimaryProps) => {
+  const { placeholder, handlerSubmitCart } = props;
   const { theme } = useTheme();
 
   return (
-    <View style={[styles.container, { backgroundColor: theme.primary, shadowColor: theme.primary }]} >
+    <Pressable
+      onPress={handlerSubmitCart}
+      android_ripple={{ color: theme.textColor, borderless: false, radius: 0 }}
+      style={[styles.container, { backgroundColor: theme.primary, shadowColor: theme.primary }]} >
       <Text style={styles.text}>{placeholder}</Text>
-    </View>
+    </Pressable>
   );
 }
 
@@ -23,7 +31,7 @@ const styles = StyleSheet.create({
     borderRadius: 23,
     alignItems: 'center',
     justifyContent: 'center',
-    
+
     shadowOpacity: 0.35,
     shadowOffset: {
       width: 0,

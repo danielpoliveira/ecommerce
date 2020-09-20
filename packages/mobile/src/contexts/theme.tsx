@@ -6,11 +6,11 @@ import AsyncStorage, { useAsyncStorage } from '@react-native-community/async-sto
 import * as themes from '@styles/index';
 
 interface Theme {
-  mode: string,
+  mode: string;
   background: string;
   textColor: string;
   textColorSecundary: string;
-  barStyle: StatusBarStyle | string;
+  barStyle: StatusBarStyle ;
   title: string;
   error: string;
   primary: string;

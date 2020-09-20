@@ -1,25 +1,34 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import { useTheme } from '@contexts/theme';
 
-const TagOrdinary: React.FC = props => {
+interface TagOrdinaryProps {
+  placeholder?: string;
+  active?: boolean;
+};
+
+const TagOrdinary = (props: TagOrdinaryProps) => {
   const { placeholder, active } = props;
+  const { theme } = useTheme();
 
   return (
-    <View style={
-      [ active 
-      ? 
-        { backgroundColor: '#EF3651' }
-      :
-        { borderWidth: 1, borderColor: '#ABB4BD' }
-      , styles.container]
-    } >
-      <Text style={
-        [ active 
-        ? 
-          { color: '#2A2C36' } 
-        : { color: '#F6F6F6' }]}>Tag</Text>
+    <View
+      style={
+        [active
+          ?
+          { backgroundColor: theme.primary }
+          :
+          { borderWidth: 1, borderColor: theme.textColorSecundary },
+        styles.container]
+      } 
+    >
+      <Text
+        style={{
+          textTransform: 'uppercase',
+          color: active ? theme.background : theme.textColor
+        }}
+      >{placeholder || 'tag'}</Text>
     </View>
   );
 }

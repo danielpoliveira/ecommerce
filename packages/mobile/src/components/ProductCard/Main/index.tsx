@@ -10,7 +10,16 @@ import image from '@images/product-card-main.png';
 
 import { useTheme } from '@contexts/theme';
 
-const ProductCardMain = props => {
+interface ProductCardMainProps {
+  placeholder?: string;
+  active?: boolean;
+  end?: boolean; 
+  isEnabled?: boolean;
+  navigation: any; 
+  tagInfo?: string;
+};
+
+const ProductCardMain = (props: ProductCardMainProps) => {
   const { placeholder, end, isEnabled, navigation, tagInfo } = props;
   const { theme } = useTheme();
 

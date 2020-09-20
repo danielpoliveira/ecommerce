@@ -9,7 +9,7 @@ const Dropdown = props => {
   const { theme } = useTheme();
 
   return (
-    <View style={[styles.container, {borderColor: theme.textColorSecundary}]} >
+    <View style={[styles.container, { borderColor: theme.textColorSecundary}]} >
       <Text style={[styles.text, { color: theme.textColor}]}>{placeholder || 'Tag'}</Text>
       <MaterialIcons name="keyboard-arrow-down" color="#ABB4BD" size={16}/>
     </View>

@@ -262,7 +262,8 @@ const styles = StyleSheet.create({
   },
 
   textImageBackgroundContainer: {
-    marginTop: '60%',
+    marginTop: '55%',
+    //marginTop: windowHeight / 100 * 30,
     paddingHorizontal: 10,
   },
 
