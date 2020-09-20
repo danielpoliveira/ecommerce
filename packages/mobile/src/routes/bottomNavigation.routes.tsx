@@ -5,11 +5,14 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from '@pages/Home';
 import Shop from '@pages/Shop';
 import Bag from '@pages/Bag';
+import Favorites from '@pages/Favorites';
+
 import Profile from '@pages/Profile';
 
 import HomeIcon from '@components/BottomTab/Icons/HomeIcon';
 import ShopIcon from '@components/BottomTab/Icons/ShopIcon';
 import BagIcon from '@components/BottomTab/Icons/BagIcon';
+import HeartIcon from '@components/BottomTab/Icons/HeartIcon';
 import ProfileIcon from '@components/BottomTab/Icons/ProfileIcon';
 
 import { useTheme } from '@contexts/theme';
@@ -61,6 +64,12 @@ const Tabs = () => {
       <BottomStack.Screen name="Bag" component={Bag}
         options={{
           tabBarIcon: ({ color, focused }) => <BagIcon bgColor={focused ? color : 'none'} color={color} />,
+        }}
+      />
+      
+      <BottomStack.Screen name="Favorites" component={Favorites}
+        options={{
+          tabBarIcon: ({ color, focused }) => <HeartIcon bgColor={focused ? color : 'none'} color={color} />,
         }}
       />
 
